@@ -171,7 +171,7 @@ def load_data_resume_for_pdf():
     pdf.add_section(Section(result))
 
     # Optionally, set metadata for the PDF
-    pdf.meta['title'] = 'My Resume'
+    pdf.meta['title'] = 'Meu Currículo'
     pdf.meta['author'] = 'Marcelo Peres'
 
     # Save the PDF to a file
