@@ -87,8 +87,7 @@ def get_bi4all_project_01(info_requested: str, idiom: str)-> str:
         {div_ini}
 
         #### Jul 2021 to May 2022
-        #### Manserv
-        #### Project - BI in AWS
+        #### Manserv Company
 
         Responsible for creating data pipelines to push data in S3 using python AWS lambda funtions.
         Using packages such as awswrangler, xmltodict, json and much more.
@@ -128,8 +127,7 @@ def get_bi4all_project_01(info_requested: str, idiom: str)-> str:
         {div_ini}
 
         #### De Julho de 2021 até Maio de 2022
-        #### Manserv
-        #### Projeto - BI na AWS
+        #### EmpresaManserv
 
         Responsável pela criação de pipelines de dados para enviar dados para o S3 usando funções AWS Lambda em Python.
         Utilizando pacotes como awswrangler, xmltodict, json e muitos outros.

@@ -79,7 +79,6 @@ def get_apllos_project_03(info_requested: str, idiom: str)-> str:
         info = f'''
         {div_ini}
 
-        #### << Project Audlab >>
         #### From Jan 2025 to nowadays
                 
         Now developing into data lake Delta Lake tables and Postgre tables for Gerdau Commercial Assets.
@@ -106,10 +105,8 @@ def get_apllos_project_03(info_requested: str, idiom: str)-> str:
         title = f'Projeto Audlab | {p03}'
         info = f'''
         {div_ini}
-
-        #### << Projeto Audlab >>
+        
         #### De Janeiro de 2025 até o presente momento
-                
         
         Atualmente desenvolvendo um data lake com tabelas Delta Lake e tabelas PostgreSQL para os ativos comerciais da Gerdau.
         Algumas tabelas no PostgreSQL servem para interação com aplicativos e tomada de decisões por meio de relatórios do Power BI.
@@ -143,8 +140,7 @@ def get_apllos_project_02(info_requested: str, idiom: str)-> str:
         title = f'Project GAB - Industrial Maintenance | {p02}'
         info = f'''
         {div_ini}
-
-        #### << Project GAB - Industrial Maintenance >>
+        
         #### From Sep 2024 to Dec 2024
 
         In charge of migrate and rebuild ETL process in Pyspark.
@@ -154,10 +150,8 @@ def get_apllos_project_02(info_requested: str, idiom: str)-> str:
         New tables were created, steps were adpted and the project ajusted.
 
         Final charge time has been reduced and the PBI charges becmes faster. 
-        
-        
+                
         For three large tables the gains were awesome as below mentioned: 
-
 
         - **The first table took 01h20 before.**
         - **The second one took 03h13 before.**
@@ -186,8 +180,7 @@ def get_apllos_project_02(info_requested: str, idiom: str)-> str:
         title = f'Projeto GAB - Manutenção Industrial | {p02}'
         info = f'''
         {div_ini}
-
-        #### << Projeto GAB - Manutenção Industrial >>
+        
         #### De Setembro de 2024 até Dezembre de 2024
 
         Responsável pela migração e reconstrução do processo ETL em PySpark.
@@ -200,7 +193,6 @@ def get_apllos_project_02(info_requested: str, idiom: str)-> str:
         O tempo de faturamento final foi reduzido e o faturamento do Power BI tornou-se mais rápido.
 
         Para três tabelas grandes, os ganhos foram impressionantes, conforme mencionado abaixo:
-
 
         - **A primeira tabela levava 01h20.**
         - **A segunda levava 03h13.**
@@ -237,8 +229,7 @@ def get_apllos_project_01(info_requested: str, idiom: str)-> str:
         title = f'Project Databricks Migration Audlab | {p01}'
         info = f'''
         {div_ini}
-
-        #### << Audlab >>
+        
         #### From Jul 2023 to Sep 2024
 
         In charge of data ingestions.
@@ -279,8 +270,7 @@ def get_apllos_project_01(info_requested: str, idiom: str)-> str:
         title = f'Projeto Audlab | {p02}'
         info = f'''
         {div_ini}
-
-        #### << Projeto Audlab >>
+        
         #### De Julho de 2023 até Setembro de 2024
 
         Responsável pela ingestão de dados.

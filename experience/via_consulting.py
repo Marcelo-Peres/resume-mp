@@ -88,7 +88,6 @@ def get_via_consulting_project_03(info_requested: str, idiom: str)-> str:
 
         #### Ago 2022 to Ago 2022
         #### Smiles S.A.
-        #### Project - Gol Spend & Get
 
         AWS Python lambda function that validates files to be called by an API.
         
@@ -121,7 +120,6 @@ def get_via_consulting_project_03(info_requested: str, idiom: str)-> str:
 
         #### De Agosto de 2022 até Agosto de 2022
         #### Smiles S.A.
-        #### Projeto - Gol Gaste & Ganhe
 
         Função Lambda AWS Python que valida arquivos para serem enviados para uma API.
         
@@ -161,7 +159,6 @@ def get_via_consulting_project_02(info_requested: str, idiom: str)-> str:
         {div_ini}
 
         #### Jul 2022 to Jul 2022
-        #### Project - Zendesk Replication
 
         Continuous pushing of data in a AWS environment using tools like:
         
@@ -190,7 +187,6 @@ def get_via_consulting_project_02(info_requested: str, idiom: str)-> str:
         {div_ini}
 
         #### De Julho de 2022 até Julho de 2022
-        #### Projeto - Replicação Zendesk
 
         Processo contínuo de envio de dados numa ambiente AWS usando ferramentas como:
         
@@ -221,13 +217,12 @@ def get_via_consulting_project_01(info_requested:str, idiom: str)-> str:
             else:
                 p01 = f'0{years} years and {months} month(s)'
         
-        title = f'Project - Stuffed Wallet | {p01}'
+        title = f'Project Unimed - Stuffed Wallet | {p01}'
         info = f'''
         {div_ini}
 
         #### Apr 2022 to Jun 2022
         #### Unimed Insurance
-        #### Project - Stuffed Wallet (Carteira Recheada)
 
         Colaborating with the team in a ETL process using tools like:
         
@@ -254,13 +249,12 @@ def get_via_consulting_project_01(info_requested:str, idiom: str)-> str:
             else:
                 p02 = f'0{years} ano(s) e {months} meses'
 
-        title = f'Unimed Seguros | {p02}'
+        title = f'Projeto Unimed - Carteira Recheada | {p02}'
         info = f'''
         {div_ini}
 
         #### De Abril de 2022 até Junho de 2022
         #### Unimed Seguros
-        #### Projeto - Carteira Recheada
 
         Colaborando com a equipe em processos de ETL usando ferramentas como:
         
