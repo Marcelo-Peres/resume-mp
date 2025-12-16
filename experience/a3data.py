@@ -50,7 +50,7 @@ def get_a3data_info(info_requested:str, idiom: str)-> str:
             else:
                 a3data_p01 = f'0{years} ano(s) e {months} meses'
 
-        title = f'Engenheiro Big Data | A3 Data | {a3data_p01}'
+        title = f'Engenheiro de Big Data | A3 Data | {a3data_p01}'
         info = f'''
             {div_ini}
 
