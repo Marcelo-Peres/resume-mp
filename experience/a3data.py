@@ -4,75 +4,140 @@ from pandas import to_datetime
 div_ini = '<div style="text-align: justify;">'
 div_end = '</div>'
 
-def get_a3data_info(info_requested:str)-> str:
+def get_a3data_info(info_requested:str, idiom: str)-> str:
 
-    a3data = to_datetime('2022-12-01').date()
-    a3data_end_date = to_datetime('2023-03-31').date()
-    a3data_diff = relativedelta(a3data_end_date, a3data)
+    ini_date = to_datetime('2022-12-01').date()
+    end_date = to_datetime('2023-03-31').date()
+    diff_date = relativedelta(end_date, ini_date)
 
-    a3data_years = a3data_diff.years
-    a3data_months = a3data_diff.months
+    years = diff_date.years
+    months = diff_date.months
 
-    if a3data_years == 0:
-        if a3data_months < 10:
-            a3data_job = f'0{a3data_months} month(s)'
+    if idiom == 'en':
+        if years == 0:
+            if months < 10:
+                a3data_job = f'0{months} month(s)'
+            else:
+                a3data_job = f'{months} month(s)'
         else:
-            a3data_job = f'{a3data_months} month(s)'
-    else:
-        if a3data_months < 10:
-            a3data_job = f'0{a3data_years} years and 0{a3data_months} month(s)'
+            if months < 10:
+                a3data_job = f'0{years} years and 0{months} month(s)'
+            else:
+                a3data_job = f'0{years} years and {months} month(s)'
+            
+        title = f'Big Data Engineer | A3 Data | {a3data_job}'
+        info = f'''
+        {div_ini}
+
+        #### Dec 2022 to Mar 2023
+
+        {div_end}
+        '''
+    
+    elif idiom == 'br':
+        if years == 0:
+            if months == 1:
+                a3data_p01 = f'0{months} mês'
+            elif months < 10:
+                a3data_p01 = f'0{months} meses'
+            else:
+                a3data_p01 = f'{months} meses'
         else:
-            a3data_job = f'0{a3data_years} years and {a3data_months} month(s)'
-        
-    title = f'Big Data Engineer | A3 Data | {a3data_job}'
-    info = f'''
-    {div_ini}
+            if months == 1:
+                a3data_p01 = f'0{years} ano(s) e 0{months} mês'
+            if months < 10:
+                a3data_p01 = f'0{years} ano(s) e 0{months} meses'
+            else:
+                a3data_p01 = f'0{years} ano(s) e {months} meses'
 
-    #### Dec 2022 to Mar 2023
+        title = f'Engenheiro Big Data | A3 Data | {a3data_p01}'
+        info = f'''
+            {div_ini}
 
-    {div_end}
-    '''
+            #### De Dezembro de 2022 até Março de 2023
+
+            {div_end}
+            '''
 
     return eval(info_requested)
 
-def get_a3data_stellantis_project(info_requested:str)-> str:
+def get_a3data_project_01(info_requested: str, idiom: str)-> str:
 
-    stellantis = to_datetime('2022-12-01').date()
-    stellantis_end_date = to_datetime('2023-03-31').date()
-    stellantis_diff = relativedelta(stellantis_end_date, stellantis)
+    ini_date = to_datetime('2022-12-01').date()
+    end_date = to_datetime('2023-03-31').date()
+    diff_date = relativedelta(end_date, ini_date)
 
-    stellantis_years = stellantis_diff.years
-    stellantis_months = stellantis_diff.months
+    years = diff_date.years
+    months = diff_date.months
     
-    if stellantis_years == 0:
-        if stellantis_months < 10:
-            stellantis_job = f'0{stellantis_months} month(s)'
+    if idiom == 'en':
+        if years == 0:
+            if months < 10:
+                a3data_p01 = f'0{months} month(s)'
+            else:
+                a3data_p01 = f'{months} month(s)'
         else:
-            stellantis_job = f'{stellantis_months} month(s)'
-    else:
-        if stellantis_months < 10:
-            stellantis_job = f'0{stellantis_years} years and 0{stellantis_months} month(s)'
-        else:
-            stellantis_job = f'0{stellantis_years} years and {stellantis_months} month(s)'
+            if months < 10:
+                a3data_p01 = f'0{years} years and 0{months} month(s)'
+            else:
+                a3data_p01 = f'0{years} years and {months} month(s)'
+        
+        title = f'Datalake project - Stellantis Company | {a3data_p01}'
+        info = f'''
+        {div_ini}
+
+        #### From Dec 2022 to Mar 2023
+        #### << GCP - Google Cloud Platform >>
+
+        Responsible for creating tools to interect data at plataform.
+
+        Tools used:
+        - Terraform;
+        - Google Storage;
+        - BigQuery;
+        - Google Functions;
+        - Airflow;
+        - Python;
+        - SQL.
+
+        {div_end}
+        '''
     
-    title = f'Stellantis - Datalake project | {stellantis_job}'
-    info = f'''
-    {div_ini}
+    elif idiom == 'br':
+        if years == 0:
+            if months == 1:
+                a3data_p01 = f'0{months} mês'
+            elif months < 10:
+                a3data_p01 = f'0{months} meses'
+            else:
+                a3data_p01 = f'{months} meses'
+        else:
+            if months == 1:
+                a3data_p01 = f'0{years} ano(s) e 0{months} mês'
+            if months < 10:
+                a3data_p01 = f'0{years} ano(s) e 0{months} meses'
+            else:
+                a3data_p01 = f'0{years} ano(s) e {months} meses'
 
-    #### Dec 2022 to Mar 2023
-    #### << GCP - Google Cloud Platform >>
+        title = f'Projeto Datalake - Empresa Stellantis | {a3data_p01}'
+        info = f'''
+        {div_ini}
 
-    Responsible for creating tools to interect data at plataform.
+        #### De Dezembro de 2022 até Março de 2023
+        #### << GCP - Platform Google em nuvem >>
 
-    - Tools used:
-    - Terraform;
-    - Google Storage;
-    - BigQuery;
-    - Google Functions;
-    - Airflow;
-    - Python;
-    - SQL.
-    {div_end}
-    '''
+        Responsável por criar ferramentas para interagir com dados na plataforma.
+
+        Ferramentas utilizadas:
+        - Terraform;
+        - Google Storage;
+        - BigQuery;
+        - Google Functions;
+        - Airflow;
+        - Python;
+        - SQL.
+        
+        {div_end}
+        '''
 
     return eval(info_requested)

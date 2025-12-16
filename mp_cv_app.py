@@ -1,9 +1,11 @@
 # ------ Personal Resume App (Advanced with placeholders) ------
 import streamlit as st
 from streamlit_pdf_viewer import pdf_viewer
-from markdown_pdf import MarkdownPdf, Section
 from streamlit_option_menu import option_menu
-from make_resume_in_pdf import load_data_for_pdf
+
+from make_resume_us_in_pdf import load_data_resume_us_for_pdf
+from make_resume_br_in_pdf import load_data_resume_for_pdf
+
 from plotly import graph_objects as go
 
 from about.content import get_about_introduction
@@ -12,37 +14,78 @@ from skills.content import get_skills_info
 
 from experience.apllos import (
     get_apllos_info,
-    get_apllos_current_project,
-    get_apllos_gab_project,
-    get_apllos_audlab_project
+    get_apllos_project_03,
+    get_apllos_project_02,
+    get_apllos_project_01
 )
 from experience.a3data import (
     get_a3data_info,
-    get_a3data_stellantis_project
+    get_a3data_project_01
 )
 from experience.via_consulting import (
     get_via_consulting_info,
-    get_via_consulting_gol_project,
-    get_via_consulting_zendesk_project,
-    get_via_consulting_unimed_project
+    get_via_consulting_project_03,
+    get_via_consulting_project_02,
+    get_via_consulting_project_01
 )
 from experience.bi4all import (
     get_bi4all_info,
-    get_bi4all_bi_project
+    get_bi4all_project_01
 )
 from experience.clif import (
     get_clif_info,
-    get_clif_project
+    get_clif_project_01
 )
 
 from education.content import get_education_info
 
+div_ini = '<div style="text-align: justify;">'
+div_end = '</div>'
 # Sidebar for navigation
+with st.sidebar:
+    origem_selected = option_menu(
+        menu_title = 'Select Language',
+        options = ['English US', 'Português BR'],
+        icons = ['globe', 'globe'],
+        menu_icon = 'cast',
+        default_index = 0,
+        styles = {
+            #"container": {"padding": "0!important", "background-color": "#f0f2f6"},
+            "icon": {"color": "white", "font-size": "25px"},
+            "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px", "--hover-color": "#d3daddab"},
+            "nav-link-selected": {"background-color": "#d3daddab"}
+        }
+    )
+if origem_selected == 'English US':
+    idiom_idioma = 'en'
+    options = ['About', 'Skills', 'Experience', 'Education', 'Contact', 'Resume']
+    subtitle = 'Big Data Engineer'
+    title_menu = 'Navigation'
+    introduction = get_about_introduction('en')
+    habilidades_skills = 'Skills Overview'
+    experience_experiencia = 'Experience'
+    job_trabalho = 'Current Job'
+    previous_antes_job_trabalho = 'Previous Jobs'
+    education_educacao = 'Education'
+    education_educacao_ref = '<< Get in Touch >>'
+
+elif origem_selected == 'Português BR':
+    idiom_idioma = 'br'
+    options = ['Sobre', 'Habilidades', 'Experiência', 'Formação', 'Contato', 'Currículo']
+    subtitle = 'Engenheiro de Big Data'
+    title_menu = 'Menu'
+    introduction = get_about_introduction('br')
+    habilidades_skills = 'Habilidades Demonstradas'
+    experience_experiencia = 'Experiência'
+    job_trabalho = 'Trabalho Atual'
+    previous_antes_job_trabalho = 'Trabalhos Anteriores'
+    education_educacao = 'Educação'
+    education_educacao_ref = '<< Mantenha Contato >>'
 
 with st.sidebar:
     selected = option_menu(
-        menu_title = 'Navigation',
-        options = ['About', 'Skills', 'Experience', 'Education', 'Contact', 'Resume'],
+        menu_title = title_menu,
+        options = options,
         icons = ['person', 'book', 'briefcase', 'clipboard-fill', 'envelope', 'file-earmark-person-fill'],
         menu_icon = 'cast',
         default_index = 0,
@@ -57,28 +100,28 @@ with st.sidebar:
 
 # Header with name and title
 st.title('Marcelo Peres')
-st.subheader('Big Data Engineer')
+st.subheader(subtitle)
 
-if selected == 'About':
+if selected == options[0]:
     st.image(get_mp_img(), width = 400)
     st.write('\n', unsafe_allow_html = True)
-    st.write(get_about_introduction('p1'), unsafe_allow_html = True)
+    st.write(div_ini + introduction[0] + div_end, unsafe_allow_html = True)
     st.write('\n', unsafe_allow_html = True)
-    st.write(get_about_introduction('p2'), unsafe_allow_html = True)
+    st.write(div_ini + introduction[1] + div_end, unsafe_allow_html = True)
     st.write('\n', unsafe_allow_html = True)
-    st.write(get_about_introduction('p3'), unsafe_allow_html = True)
+    st.write(div_ini + introduction[2] + div_end, unsafe_allow_html = True)
     st.write('\n', unsafe_allow_html = True)
-    st.write(get_about_introduction('p4'), unsafe_allow_html = True)
+    st.write(div_ini + introduction[3] + div_end, unsafe_allow_html = True)
     st.write('\n', unsafe_allow_html = True)
-    st.write(get_about_introduction('p5'), unsafe_allow_html = True)
+    st.write(div_ini + introduction[4] + div_end, unsafe_allow_html = True)
 
-elif selected == 'Skills':
+elif selected == options[1]:
     # Title
     center_ini = '''<h1 style='text-align: center;'>'''
     center_end = '</h1>'
-    title_info = 'Skills Overview'
+    title_info = habilidades_skills
     st.markdown(
-    "<h1 style='text-align: center;'> 🔎 Skills Overview </h1>",
+    f"<h1 style='text-align: center;'> 🔎 {habilidades_skills} </h1>",
     unsafe_allow_html=True
     )
 
@@ -104,64 +147,64 @@ elif selected == 'Skills':
     fig.update_yaxes(visible = False)
     st.plotly_chart(fig, use_container_width = True)
 
-elif selected == 'Experience':
-    st.header('Work Experience')
-    
-    st.subheader('Current Job')
-    # Aplos
-    with st.expander(get_apllos_info('title')):
-        st.write(get_apllos_info('info'), unsafe_allow_html = True)
+elif selected == options[2]:
+    # Title
+    st.header(experience_experiencia)
+    st.subheader(job_trabalho)
+    # Apllos
+    with st.expander(get_apllos_info(info_requested = 'title', idiom = idiom_idioma)):
+        st.write(get_apllos_info(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
         # Audlab Project
-        with st.expander(get_apllos_current_project('title')):
-            st.write(get_apllos_current_project('info'), unsafe_allow_html = True)
+        with st.expander(get_apllos_project_03(info_requested = 'title', idiom = idiom_idioma)):
+            st.write(get_apllos_project_03(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
         # Gab Project
-        with st.expander(get_apllos_gab_project('title')):
-            st.write(get_apllos_gab_project('info'), unsafe_allow_html = True)
+        with st.expander(get_apllos_project_02(info_requested = 'title', idiom = idiom_idioma)):
+            st.write(get_apllos_project_02(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
         # Audlab Project
-        with st.expander(get_apllos_audlab_project('title')):
-            st.write(get_apllos_audlab_project('info'), unsafe_allow_html = True)
+        with st.expander(get_apllos_project_01(info_requested = 'title', idiom = idiom_idioma)):
+            st.write(get_apllos_project_01(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
 
-    st.subheader('Previous Jobs')
-    with st.expander(get_a3data_info('title')):
-        st.write(get_a3data_info('info'), unsafe_allow_html = True)
+    st.subheader(previous_antes_job_trabalho)
+    with st.expander(get_a3data_info(info_requested = 'title', idiom = idiom_idioma)):
+        st.write(get_a3data_info(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
         # Stellantis #
-        with st.expander(get_a3data_stellantis_project('title')):
-            st.write(get_a3data_stellantis_project('info'), unsafe_allow_html = True)
+        with st.expander(get_a3data_project_01(info_requested = 'title', idiom = idiom_idioma)):
+            st.write(get_a3data_project_01(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
     
     # Via Consulting 
-    with st.expander(get_via_consulting_info('title')):
-        st.write(get_via_consulting_info('info'), unsafe_allow_html = True)
+    with st.expander(get_via_consulting_info(info_requested = 'title', idiom = idiom_idioma)):
+        st.write(get_via_consulting_info(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
         # Gol Project
-        with st.expander(get_via_consulting_gol_project('title')):
-            st.write(get_via_consulting_gol_project('info'), unsafe_allow_html = True)
+        with st.expander(get_via_consulting_project_03(info_requested = 'title', idiom = idiom_idioma)):
+            st.write(get_via_consulting_project_03(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
         # Zendesk'
-        with st.expander(get_via_consulting_zendesk_project('title')):
-            st.write(get_via_consulting_zendesk_project('info'), unsafe_allow_html = True)
+        with st.expander(get_via_consulting_project_02(info_requested = 'title', idiom = idiom_idioma)):
+            st.write(get_via_consulting_project_02(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
         # Unimed
-        with st.expander(get_via_consulting_unimed_project('title')):
-            st.write(get_via_consulting_unimed_project('info'), unsafe_allow_html = True)
+        with st.expander(get_via_consulting_project_01(info_requested = 'title', idiom = idiom_idioma)):
+            st.write(get_via_consulting_project_01(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
     
     # BI4ALL
-    with st.expander(get_bi4all_info('title')):
-        st.write(get_bi4all_info('info'), unsafe_allow_html = True)
+    with st.expander(get_bi4all_info(info_requested = 'title', idiom = idiom_idioma)):
+        st.write(get_bi4all_info(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
         # BI in AWS
-        with st.expander(get_bi4all_bi_project('title')):
-            st.write(get_bi4all_bi_project('info'), unsafe_allow_html = True)
+        with st.expander(get_bi4all_project_01(info_requested = 'title', idiom = idiom_idioma)):
+            st.write(get_bi4all_project_01(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
 
     # CLIF
-    with st.expander(get_clif_info('title')):
-        st.write(get_clif_info('info'), unsafe_allow_html = True)
+    with st.expander(get_clif_info(info_requested = 'title', idiom = idiom_idioma)):
+        st.write(get_clif_info(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
         # BI in AWS
-        with st.expander(get_clif_project('title')):
-            st.write(get_clif_project('info'), unsafe_allow_html = True)
+        with st.expander(get_clif_project_01(info_requested = 'title', idiom = idiom_idioma)):
+            st.write(get_clif_project_01(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
 
 
-elif selected == 'Education':
-    st.header('Education')
-    st.write(get_education_info())
+elif selected == options[3]:
+    st.header(education_educacao)
+    st.write(get_education_info(idiom = idiom_idioma), unsafe_allow_html = True)
 
-elif selected == 'Contact':
-    st.subheader('<< Get in Touch >>')
+elif selected == options[4]:
+    st.subheader(education_educacao_ref)
     
     col1, col2 = st.columns([0.2,2], vertical_alignment = 'center', gap = 'small')
     with col1:
@@ -181,23 +224,65 @@ elif selected == 'Contact':
         # st.markdown('##### https://github.com/Marcelo-Peres')
         url_repo = 'https://github.com/Marcelo-Peres?tab=repositories'
         url_linkedin = 'https://www.linkedin.com/in/marcelo-peres-de/'
-        st.link_button('Go to my Projects!', url_repo, width = 400)
-        st.link_button('Go to my Profile!', url_linkedin, width = 400)
+        if origem_selected == 'Português BR':
+            st.link_button('Acesse meus Projetos!', url_repo, width = 400)
+            st.link_button('Acesse meu Perfil!', url_linkedin, width = 400)
+        else:
+            st.link_button('Go to my Projects!', url_repo, width = 400)
+            st.link_button('Go to my Profile!', url_linkedin, width = 400)
     
-elif selected == 'Resume':
-    try:
-        load_data_for_pdf()
-    except:
-        pass
-    
-    pdf_path = 'static/Marcelo_Peres_Resume.pdf'
-    
-    with open(pdf_path, 'rb') as f:
-        st.download_button(
-            label = '⬇️ Download this Resume in PDF',
-            data = f,
-            file_name = 'Marcelo_Peres_Resume.pdf',
-            mime = 'application/pdf'
-        )
-    
-    pdf_viewer(pdf_path, height = 1000, width = 700)
+elif selected == options[5]:
+    if origem_selected == 'English US':
+        
+        try:
+            load_data_resume_us_for_pdf()
+        except:
+            pass
+        
+        pdf_path = 'static/Marcelo_Peres_EN_Resume.pdf'
+        
+        with open(pdf_path, 'rb') as f:
+            st.download_button(
+                label = '⬇️ Download this Resume in PDF',
+                data = f,
+                file_name = 'Marcelo_Peres_EN_Resume.pdf',
+                mime = 'application/pdf'
+            )
+
+        pdf_viewer(pdf_path, height = 1000, width = 700)
+
+        # Custom Resume
+        # try:
+        #     load_data_resume_us_custom_for_pdf()
+        # except:
+        #     pass
+        
+        # pdf_path = 'static/Marcelo_Peres_EN_US_Resume.pdf'
+        
+        # with open(pdf_path, 'rb') as f:
+        #     st.download_button(
+        #         label = '⬇️ Download this Resume in PDF',
+        #         data = f,
+        #         file_name = 'Marcelo_Peres_EN_US_Resume.pdf',
+        #         mime = 'application/pdf'
+        #     )
+
+        # pdf_viewer(pdf_path, height = 1000, width = 700)
+
+    elif origem_selected == 'Português BR':
+        try:
+            load_data_resume_for_pdf()
+        except:
+            pass
+        
+        pdf_path = 'static/Marcelo_Peres_CV.pdf'
+        
+        with open(pdf_path, 'rb') as f:
+            st.download_button(
+                label = '⬇️ Download this Resume in PDF',
+                data = f,
+                file_name = 'Marcelo_Peres_CV.pdf',
+                mime = 'application/pdf'
+            )
+
+        pdf_viewer(pdf_path, height = 1000, width = 700)

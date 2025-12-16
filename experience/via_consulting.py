@@ -4,152 +4,271 @@ from pandas import to_datetime
 div_ini = '<div style="text-align: justify;">'
 div_end = '</div>'
 
-def get_via_consulting_info(info_requested:str)-> str:
-    via_consulting = to_datetime('2022-04-01').date()
-    via_consulting_end_date = to_datetime('2022-09-30').date()
-    via_consulting_diff = relativedelta(via_consulting_end_date, via_consulting)
-
-    via_consulting_years = via_consulting_diff.years
-    via_consulting_months = via_consulting_diff.months
-
-    if via_consulting_years == 0:
-        if via_consulting_months < 10:
-            via_consulting_job = f'0{via_consulting_months} month(s)'
-        else:
-            via_consulting_job = f'{via_consulting_months} month(s)'
-    else:
-        if via_consulting_months < 10:
-            via_consulting_job = f'0{via_consulting_years} years and 0{via_consulting_months} month(s)'
-        else:
-            via_consulting_job = f'0{via_consulting_years} years and {via_consulting_months} month(s)'
+def get_via_consulting_info(info_requested: str, idiom: str)-> str:
     
-    title = f'Data Engineer Consultant | Via Consulting | {via_consulting_job}'
-    info = f'''
-    {div_ini}
+    ini_date = to_datetime('2022-04-01').date()
+    end_date = to_datetime('2022-09-30').date()
+    diff_date = relativedelta(end_date, ini_date)
 
-    #### Apr 2022 to Sep 2022
-    {div_end}
-    '''
+    years = diff_date.years
+    months = diff_date.months
+
+    if idiom == 'en':
+        if years == 0:
+            if months < 10:
+                via_consulting_job = f'0{months} month(s)'
+            else:
+                via_consulting_job = f'{months} month(s)'
+        else:
+            if months < 10:
+                via_consulting_job = f'0{years} years and 0{months} month(s)'
+            else:
+                via_consulting_job = f'0{years} years and {months} month(s)'
+        
+        title = f'Data Engineer Consultant | Via Consulting | {via_consulting_job}'
+        info = f'''
+        {div_ini}
+
+        #### Apr 2022 to Sep 2022
+        
+        {div_end}
+        '''
+    
+    elif idiom == 'br':
+        if years == 0:
+            if months == 1:
+                via_consulting_job = f'0{months} mês'
+            elif months < 10:
+                via_consulting_job = f'0{months} meses'
+            else:
+                via_consulting_job = f'{months} meses'
+        else:
+            if months == 1:
+                via_consulting_job = f'0{years} ano(s) e 0{months} mês'
+            if months < 10:
+                via_consulting_job = f'0{years} ano(s) e 0{months} meses'
+            else:
+                via_consulting_job = f'0{years} ano(s) e {months} meses'
+        
+        title = f'Engenheiro de Dados Consultor | Via Consulting | {via_consulting_job}'
+        info = f'''
+        {div_ini}
+
+        ####  De Abril de 2022 até Setembro de 2022
+        
+        {div_end}
+        '''
 
     return eval(info_requested)
 
-def get_via_consulting_gol_project(info_requested:str)-> str:
+def get_via_consulting_project_03(info_requested: str, idiom: str)-> str:
 
-    gol = to_datetime('2022-08-01').date()
-    gol_end_date = to_datetime('2022-09-01').date()
-    gol_diff = relativedelta(gol_end_date, gol)
+    ini_date = to_datetime('2022-08-01').date()
+    end_date = to_datetime('2022-09-01').date()
+    diff_date = relativedelta(end_date, ini_date)
 
-    gol_years = gol_diff.years
-    gol_months = gol_diff.months
+    years = diff_date.years
+    months = diff_date.months
 
-    if gol_years == 0:
-        if gol_months < 10:
-            gol_job = f'0{gol_months} month(s)'
+    if idiom == 'en':
+        if years == 0:
+            if months < 10:
+                p03 = f'0{months} month(s)'
+            else:
+                p03 = f'{months} month(s)'
         else:
-            gol_job = f'{gol_months} month(s)'
-    else:
-        if gol_months < 10:
-            gol_job = f'0{gol_years} years and 0{gol_months} month(s)'
+            if months < 10:
+                p03 = f'0{years} years and 0{months} month(s)'
+            else:
+                p03 = f'0{years} years and {months} month(s)'
+        
+        title = f'Project - Gol Spend & Get| {p03}'
+        info = f'''
+        {div_ini}
+
+        #### Ago 2022 to Ago 2022
+        #### Smiles S.A.
+        #### Project - Gol Spend & Get
+
+        AWS Python lambda function that validates files to be called by an API.
+        
+        Resources:
+        
+        - Cloud Formation | Python with unit tests | Github release info | Jenkins to observe github uploaded code | Sonar for code quality | End of Devops stack with deploy.
+        
+        {div_end}
+        '''
+    
+    elif idiom == 'br':
+        if years == 0:
+            if months == 1:
+                p03 = f'0{months} mês'
+            elif months < 10:
+                p03 = f'0{months} meses'
+            else:
+                p03 = f'{months} meses'
         else:
-            gol_job = f'0{gol_years} years and {gol_months} month(s)'
-    
-    title = f'Project - Gol Spend & Get| {gol_job}'
-    info = f'''
-    {div_ini}
+            if months == 1:
+                p03 = f'0{years} ano(s) e 0{months} mês'
+            if months < 10:
+                p03 = f'0{years} ano(s) e 0{months} meses'
+            else:
+                p03 = f'0{years} ano(s) e {months} meses'
+        
+        title = f'Projeto - Gol Gaste & Ganhe | {p03}'
+        info = f'''
+        {div_ini}
 
-    #### Ago 2022 to Ago 2022
-    #### Smiles S.A.
-    #### Project - Gol Spend & Get
+        #### De Agosto de 2022 até Agosto de 2022
+        #### Smiles S.A.
+        #### Projeto - Gol Gaste & Ganhe
 
-    AWS Python lambda function that validates files to be called by an API.
-    
-    Resources:
-    
-    - Cloud Formation;
-    - Python with unit tests;
-    - Github release info;
-    - Jenkins to observe github uploaded code;
-    - Sonar for code quality;
-    - End of Devops stack with deploy.
-    {div_end}
-    '''
+        Função Lambda AWS Python que valida arquivos para serem enviados para uma API.
+        
+        Recursos:
+        
+        - Cloud Formation | Python com testes unitários | Github CICD | Jenkins para observabilidade | Sonar para qualidade de código | Finalização do código no repositório.
+        
+        {div_end}
+        '''
 
     return eval(info_requested)
 
 
-def get_via_consulting_zendesk_project(info_requested:str)-> str:
+def get_via_consulting_project_02(info_requested: str, idiom: str)-> str:
 
-    zendesk = to_datetime('2022-07-01').date()
-    zendesk_end_date = to_datetime('2022-08-01').date()
-    zendesk_diff = relativedelta(zendesk_end_date, zendesk)
-
-    zendesk_years = zendesk_diff.years
-    zendesk_months = zendesk_diff.months
-
-    if zendesk_years == 0:
-        if zendesk_months < 10:
-            zendesk_job = f'0{zendesk_months} month(s)'
-        else:
-            zendesk_job = f'{zendesk_months} month(s)'
-    else:
-        if zendesk_months < 10:
-            zendesk_job = f'0{zendesk_years} years and 0{zendesk_months} month(s)'
-        else:
-            zendesk_job = f'0{zendesk_years} years and {zendesk_months} month(s)'
+    ini_date = to_datetime('2022-07-01').date()
+    end_date = to_datetime('2022-08-01').date()
+    diff_date = relativedelta(end_date, ini_date)
     
-    title = f'Project - Zendesk Replication | {zendesk_job}'
-    info = f'''
-    {div_ini}
+    years = diff_date.years
+    months = diff_date.months
 
-    #### Jul 2022 to Jul 2022
-    #### Project - Zendesk Replication
+    if idiom == 'en':
+        if years == 0:
+            if months < 10:
+                p02 = f'0{months} month(s)'
+            else:
+                p02 = f'{months} month(s)'
+        else:
+            if months < 10:
+                p02 = f'0{years} years and 0{months} month(s)'
+            else:
+                p02 = f'0{years} years and {months} month(s)'
+        
+        title = f'Project - Zendesk Replication | {p02}'
+        info = f'''
+        {div_ini}
 
-    Continuous pushing of data in a AWS environment using tools like:
-    
-    - Pyspark Spark Glue jobs;
-    - Cloud Formation;
-    - AWS Athena;
-    - Apache Hudi metadata for data governance.
-    {div_end}
-    '''
+        #### Jul 2022 to Jul 2022
+        #### Project - Zendesk Replication
+
+        Continuous pushing of data in a AWS environment using tools like:
+        
+        - Pyspark Spark Glue jobs | Cloud Formation | AWS Athena | Apache Hudi metadata for data governance.
+        {div_end}
+        '''
+
+    elif idiom == 'br':
+        if years == 0:
+            if months == 1:
+                p02 = f'0{months} mês'
+            elif months < 10:
+                p02 = f'0{months} meses'
+            else:
+                p02 = f'{months} meses'
+        else:
+            if months == 1:
+                p02 = f'0{years} ano(s) e 0{months} mês'
+            if months < 10:
+                p02 = f'0{years} ano(s) e 0{months} meses'
+            else:
+                p02 = f'0{years} ano(s) e {months} meses'
+        
+        title = f'Projeto - Replicação Zendesk | {p02}'
+        info = f'''
+        {div_ini}
+
+        #### De Julho de 2022 até Julho de 2022
+        #### Projeto - Replicação Zendesk
+
+        Processo contínuo de envio de dados numa ambiente AWS usando ferramentas como:
+        
+        - Pyspark Spark Glue jobs | Cloud Formation | AWS Athena | Apache Hudi metadata for data governance.
+        {div_end}
+        '''
 
     return eval(info_requested)
 
-def get_via_consulting_unimed_project(info_requested:str)-> str:
+def get_via_consulting_project_01(info_requested:str, idiom: str)-> str:
 
-    unimed = to_datetime('2022-06-01').date()
-    unimed_end_date = to_datetime('2022-09-30').date()
-    unimed_diff = relativedelta(unimed_end_date, unimed)
+    ini_date = to_datetime('2022-06-01').date()
+    end_date = to_datetime('2022-09-30').date()
+    diff_date = relativedelta(end_date, ini_date)
 
-    unimed_years = unimed_diff.years
-    unimed_months = unimed_diff.months
+    years = diff_date.years
+    months = diff_date.months
 
-    if unimed_years == 0:
-        if unimed_months < 10:
-            unimed_job = f'0{unimed_months} month(s)'
+    if idiom == 'en':
+        if years == 0:
+            if months < 10:
+                p01 = f'0{months} month(s)'
+            else:
+                p01 = f'{months} month(s)'
         else:
-            unimed_job = f'{unimed_months} month(s)'
-    else:
-        if unimed_months < 10:
-            unimed_job = f'0{unimed_years} years and 0{unimed_months} month(s)'
+            if months < 10:
+                p01 = f'0{years} years and 0{months} month(s)'
+            else:
+                p01 = f'0{years} years and {months} month(s)'
+        
+        title = f'Project - Stuffed Wallet | {p01}'
+        info = f'''
+        {div_ini}
+
+        #### Apr 2022 to Jun 2022
+        #### Unimed Insurance
+        #### Project - Stuffed Wallet (Carteira Recheada)
+
+        Colaborating with the team in a ETL process using tools like:
+        
+        - Informatica Powercenter | PLSQL - Oracle.
+        
+        The idea of the project is a campaign that supports the score of the company's brokers.
+            
+        {div_end}
+        '''
+    
+    elif idiom == 'br':
+        if years == 0:
+            if months == 1:
+                p02 = f'0{months} mês'
+            elif months < 10:
+                p02 = f'0{months} meses'
+            else:
+                p02 = f'{months} meses'
         else:
-            unimed_job = f'0{unimed_years} years and {unimed_months} month(s)'
-    
-    title = f'Project - Stuffed Wallet | {unimed_job}'
-    info = f'''
-    {div_ini}
+            if months == 1:
+                p02 = f'0{years} ano(s) e 0{months} mês'
+            if months < 10:
+                p02 = f'0{years} ano(s) e 0{months} meses'
+            else:
+                p02 = f'0{years} ano(s) e {months} meses'
 
-    #### Apr 2022 to Jun 2022
-    #### Unimed Insurance
-    #### Project - Stuffed Wallet (Carteira Recheada)
+        title = f'Unimed Seguros | {p02}'
+        info = f'''
+        {div_ini}
 
-    Colaborating with the team in a ETL process using tools like:
-    
-    - Informatica Powercenter;
-    - PLSQL - Oracle.
-    
-    The idea of the project is a campaign that supports the score of the company's brokers.
-    {div_end}
-    '''
+        #### De Abril de 2022 até Junho de 2022
+        #### Unimed Seguros
+        #### Projeto - Carteira Recheada
+
+        Colaborando com a equipe em processos de ETL usando ferramentas como:
+        
+        - Informatica Powercenter | PLSQL - Oracle.
+        
+        A idea do projeto é uma campanha que apoia a pontuação dos corretoras da empresa e posteriormente premiação.
+            
+        {div_end}
+        '''
 
     return eval(info_requested)
