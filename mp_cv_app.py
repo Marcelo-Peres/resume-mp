@@ -42,9 +42,10 @@ from education.content import get_education_info
 div_ini = '<div style="text-align: justify;">'
 div_end = '</div>'
 # Sidebar for navigation
+
 with st.sidebar:
     origem_selected = option_menu(
-        menu_title = 'Select Language',
+        menu_title = 'Language | Idioma',
         options = ['English US', 'Português BR'],
         icons = ['globe', 'globe'],
         menu_icon = 'cast',
@@ -56,6 +57,7 @@ with st.sidebar:
             "nav-link-selected": {"background-color": "#d3daddab"}
         }
     )
+
 if origem_selected == 'English US':
     idiom_idioma = 'en'
     options = ['About', 'Skills', 'Experience', 'Education', 'Contact', 'Resume']
