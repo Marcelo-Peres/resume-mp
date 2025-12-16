@@ -183,7 +183,7 @@ def get_apllos_project_02(info_requested: str, idiom: str)-> str:
             else:
                 p02 = f'0{years} ano(s) e {months} meses'
 
-        title = f'Projeto Audlab | {p02}'
+        title = f'Projeto GAB - Manutenção Industrial | {p02}'
         info = f'''
         {div_ini}
 
