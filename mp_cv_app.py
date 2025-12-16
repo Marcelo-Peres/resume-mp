@@ -45,7 +45,7 @@ div_end = '</div>'
 
 with st.sidebar:
     origem_selected = option_menu(
-        menu_title = 'Language | Idioma',
+        menu_title = '',
         options = ['English US', 'Português BR'],
         icons = ['globe', 'globe'],
         menu_icon = 'cast',
