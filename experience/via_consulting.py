@@ -1,92 +1,55 @@
-from dateutil.relativedelta import relativedelta
-from pandas import to_datetime
+from helper.py_helper import get_work_project_time
 
 div_ini = '<div style="text-align: justify;">'
 div_end = '</div>'
 
-def get_via_consulting_info(info_requested: str, idiom: str)-> str:
+def get_via_consulting_info(idiom: str)-> str:
     
-    ini_date = to_datetime('2022-04-01').date()
-    end_date = to_datetime('2022-09-30').date()
-    diff_date = relativedelta(end_date, ini_date)
-
-    years = diff_date.years
-    months = diff_date.months
+    ini_date = '2022-04-01'
+    end_date = '2022-09-30'
+    
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
 
     if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                via_consulting_job = f'0{months} month(s)'
-            else:
-                via_consulting_job = f'{months} month(s)'
-        else:
-            if months < 10:
-                via_consulting_job = f'0{years} years and 0{months} month(s)'
-            else:
-                via_consulting_job = f'0{years} years and {months} month(s)'
-        
-        title = f'Data Engineer Consultant | Via Consulting | {via_consulting_job}'
+                
+        title = f'Data Engineer Consultant | Via Consulting | {job_time}'
         info = f'''
         {div_ini}
 
-        #### Apr 2022 to Sep 2022
+        #{detail}
         
         {div_end}
         '''
+
+        return title, info
     
     elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                via_consulting_job = f'0{months} mês'
-            elif months < 10:
-                via_consulting_job = f'0{months} meses'
-            else:
-                via_consulting_job = f'{months} meses'
-        else:
-            if months == 1:
-                via_consulting_job = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                via_consulting_job = f'0{years} ano(s) e 0{months} meses'
-            else:
-                via_consulting_job = f'0{years} ano(s) e {months} meses'
-        
-        title = f'Engenheiro de Dados Consultor | Via Consulting | {via_consulting_job}'
+                
+        title = f'Engenheiro de Dados Consultor | Via Consulting | {job_time}'
         info = f'''
         {div_ini}
 
-        ####  De Abril de 2022 até Setembro de 2022
+        #{detail}
         
         {div_end}
         '''
 
-    return eval(info_requested)
+        return title, info
 
-def get_via_consulting_project_03(info_requested: str, idiom: str)-> str:
+def get_via_consulting_project_03(idiom: str)-> str:
 
-    ini_date = to_datetime('2022-08-01').date()
-    end_date = to_datetime('2022-09-01').date()
-    diff_date = relativedelta(end_date, ini_date)
-
-    years = diff_date.years
-    months = diff_date.months
+    ini_date = '2022-08-01'
+    end_date = '2022-09-01'
+    
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
 
     if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                p03 = f'0{months} month(s)'
-            else:
-                p03 = f'{months} month(s)'
-        else:
-            if months < 10:
-                p03 = f'0{years} years and 0{months} month(s)'
-            else:
-                p03 = f'0{years} years and {months} month(s)'
-        
-        title = f'Project - Gol Spend & Get| {p03}'
+                
+        title = f'Project - Gol Spend & Get| {job_time}'
         info = f'''
         {div_ini}
 
-        #### Ago 2022 to Ago 2022
+        #{detail}
         #### Smiles S.A.
 
         AWS Python lambda function that validates files to be called by an API.
@@ -97,28 +60,16 @@ def get_via_consulting_project_03(info_requested: str, idiom: str)-> str:
         
         {div_end}
         '''
+
+        return title, info
     
     elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                p03 = f'0{months} mês'
-            elif months < 10:
-                p03 = f'0{months} meses'
-            else:
-                p03 = f'{months} meses'
-        else:
-            if months == 1:
-                p03 = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                p03 = f'0{years} ano(s) e 0{months} meses'
-            else:
-                p03 = f'0{years} ano(s) e {months} meses'
         
-        title = f'Projeto - Gol Gaste & Ganhe | {p03}'
+        title = f'Projeto - Gol Gaste & Ganhe | {job_time}'
         info = f'''
         {div_ini}
 
-        #### De Agosto de 2022 até Agosto de 2022
+        #{detail}
         #### Smiles S.A.
 
         Função Lambda AWS Python que valida arquivos para serem enviados para uma API.
@@ -130,35 +81,23 @@ def get_via_consulting_project_03(info_requested: str, idiom: str)-> str:
         {div_end}
         '''
 
-    return eval(info_requested)
+        return title, info
 
 
-def get_via_consulting_project_02(info_requested: str, idiom: str)-> str:
+def get_via_consulting_project_02(idiom: str)-> str:
 
-    ini_date = to_datetime('2022-07-01').date()
-    end_date = to_datetime('2022-08-01').date()
-    diff_date = relativedelta(end_date, ini_date)
+    ini_date = '2022-07-01'
+    end_date = '2022-08-01'
     
-    years = diff_date.years
-    months = diff_date.months
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
 
     if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                p02 = f'0{months} month(s)'
-            else:
-                p02 = f'{months} month(s)'
-        else:
-            if months < 10:
-                p02 = f'0{years} years and 0{months} month(s)'
-            else:
-                p02 = f'0{years} years and {months} month(s)'
-        
-        title = f'Project - Zendesk Replication | {p02}'
+                
+        title = f'Project - Zendesk Replication | {job_time}'
         info = f'''
         {div_ini}
 
-        #### Jul 2022 to Jul 2022
+        #{detail}
 
         Continuous pushing of data in a AWS environment using tools like:
         
@@ -166,27 +105,15 @@ def get_via_consulting_project_02(info_requested: str, idiom: str)-> str:
         {div_end}
         '''
 
+        return title, info
+
     elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                p02 = f'0{months} mês'
-            elif months < 10:
-                p02 = f'0{months} meses'
-            else:
-                p02 = f'{months} meses'
-        else:
-            if months == 1:
-                p02 = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                p02 = f'0{years} ano(s) e 0{months} meses'
-            else:
-                p02 = f'0{years} ano(s) e {months} meses'
-        
-        title = f'Projeto - Replicação Zendesk | {p02}'
+                
+        title = f'Projeto - Replicação Zendesk | {job_time}'
         info = f'''
         {div_ini}
 
-        #### De Julho de 2022 até Julho de 2022
+        #{detail}
 
         Processo contínuo de envio de dados numa ambiente AWS usando ferramentas como:
         
@@ -194,34 +121,22 @@ def get_via_consulting_project_02(info_requested: str, idiom: str)-> str:
         {div_end}
         '''
 
-    return eval(info_requested)
+        return title, info
 
-def get_via_consulting_project_01(info_requested:str, idiom: str)-> str:
+def get_via_consulting_project_01(idiom: str)-> str:
 
-    ini_date = to_datetime('2022-06-01').date()
-    end_date = to_datetime('2022-09-30').date()
-    diff_date = relativedelta(end_date, ini_date)
+    ini_date = '2022-06-01'
+    end_date = '2022-09-30'
 
-    years = diff_date.years
-    months = diff_date.months
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
 
     if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                p01 = f'0{months} month(s)'
-            else:
-                p01 = f'{months} month(s)'
-        else:
-            if months < 10:
-                p01 = f'0{years} years and 0{months} month(s)'
-            else:
-                p01 = f'0{years} years and {months} month(s)'
-        
-        title = f'Project Unimed - Stuffed Wallet | {p01}'
+                
+        title = f'Project Unimed - Stuffed Wallet | {job_time}'
         info = f'''
         {div_ini}
 
-        #### Apr 2022 to Jun 2022
+        #{detail}
         #### Unimed Insurance
 
         Colaborating with the team in a ETL process using tools like:
@@ -232,28 +147,16 @@ def get_via_consulting_project_01(info_requested:str, idiom: str)-> str:
             
         {div_end}
         '''
+
+        return title, info
     
     elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                p02 = f'0{months} mês'
-            elif months < 10:
-                p02 = f'0{months} meses'
-            else:
-                p02 = f'{months} meses'
-        else:
-            if months == 1:
-                p02 = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                p02 = f'0{years} ano(s) e 0{months} meses'
-            else:
-                p02 = f'0{years} ano(s) e {months} meses'
-
-        title = f'Projeto Unimed - Carteira Recheada | {p02}'
+        
+        title = f'Projeto Unimed - Carteira Recheada | {job_time}'
         info = f'''
         {div_ini}
 
-        #### De Abril de 2022 até Junho de 2022
+        #{detail}
         #### Unimed Seguros
 
         Colaborando com a equipe em processos de ETL usando ferramentas como:
@@ -265,4 +168,4 @@ def get_via_consulting_project_01(info_requested:str, idiom: str)-> str:
         {div_end}
         '''
 
-    return eval(info_requested)
+        return title, info

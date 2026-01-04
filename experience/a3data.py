@@ -1,92 +1,55 @@
-from dateutil.relativedelta import relativedelta
-from pandas import to_datetime
+from helper.py_helper import get_work_project_time
 
 div_ini = '<div style="text-align: justify;">'
 div_end = '</div>'
 
-def get_a3data_info(info_requested:str, idiom: str)-> str:
+def get_a3data_info(idiom: str)-> str:
 
-    ini_date = to_datetime('2022-12-01').date()
-    end_date = to_datetime('2023-03-31').date()
-    diff_date = relativedelta(end_date, ini_date)
+    ini_date = '2022-12-01'
+    end_date = '2023-03-31'
 
-    years = diff_date.years
-    months = diff_date.months
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
 
     if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                a3data_job = f'0{months} month(s)'
-            else:
-                a3data_job = f'{months} month(s)'
-        else:
-            if months < 10:
-                a3data_job = f'0{years} years and 0{months} month(s)'
-            else:
-                a3data_job = f'0{years} years and {months} month(s)'
             
-        title = f'Big Data Engineer | A3 Data | {a3data_job}'
+        title = f'Big Data Engineer | A3 Data | {job_time}'
         info = f'''
         {div_ini}
 
-        #### Dec 2022 to Mar 2023
+        #{detail}
 
         {div_end}
         '''
+
+        return title, info
     
     elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                a3data_p01 = f'0{months} mês'
-            elif months < 10:
-                a3data_p01 = f'0{months} meses'
-            else:
-                a3data_p01 = f'{months} meses'
-        else:
-            if months == 1:
-                a3data_p01 = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                a3data_p01 = f'0{years} ano(s) e 0{months} meses'
-            else:
-                a3data_p01 = f'0{years} ano(s) e {months} meses'
 
-        title = f'Engenheiro de Big Data | A3 Data | {a3data_p01}'
-        info = f'''
-            {div_ini}
-
-            #### De Dezembro de 2022 até Março de 2023
-
-            {div_end}
-            '''
-
-    return eval(info_requested)
-
-def get_a3data_project_01(info_requested: str, idiom: str)-> str:
-
-    ini_date = to_datetime('2022-12-01').date()
-    end_date = to_datetime('2023-03-31').date()
-    diff_date = relativedelta(end_date, ini_date)
-
-    years = diff_date.years
-    months = diff_date.months
-    
-    if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                a3data_p01 = f'0{months} month(s)'
-            else:
-                a3data_p01 = f'{months} month(s)'
-        else:
-            if months < 10:
-                a3data_p01 = f'0{years} years and 0{months} month(s)'
-            else:
-                a3data_p01 = f'0{years} years and {months} month(s)'
-        
-        title = f'Datalake project - Stellantis Company | {a3data_p01}'
+        title = f'Engenheiro de Big Data | A3 Data | {job_time}'
         info = f'''
         {div_ini}
 
-        #### From Dec 2022 to Mar 2023
+        #{detail}
+
+        {div_end}
+        '''
+
+        return title, info
+
+def get_a3data_project_01(idiom: str)-> str:
+
+    ini_date = '2022-12-01'
+    end_date = '2023-03-31'
+    
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
+
+    if idiom == 'en':
+
+        title = f'Datalake project - Stellantis Company | {job_time}'
+        info = f'''
+        {div_ini}
+
+        #{detail}
         #### << GCP - Google Cloud Platform >>
 
         Responsible for creating tools to interect data at plataform.
@@ -102,28 +65,16 @@ def get_a3data_project_01(info_requested: str, idiom: str)-> str:
 
         {div_end}
         '''
+
+        return title, info
     
     elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                a3data_p01 = f'0{months} mês'
-            elif months < 10:
-                a3data_p01 = f'0{months} meses'
-            else:
-                a3data_p01 = f'{months} meses'
-        else:
-            if months == 1:
-                a3data_p01 = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                a3data_p01 = f'0{years} ano(s) e 0{months} meses'
-            else:
-                a3data_p01 = f'0{years} ano(s) e {months} meses'
-
-        title = f'Projeto Datalake - Empresa Stellantis | {a3data_p01}'
+        
+        title = f'Projeto Datalake - Empresa Stellantis | {job_time}'
         info = f'''
         {div_ini}
 
-        #### De Dezembro de 2022 até Março de 2023
+        #{detail}
         #### << GCP - Platform Google em nuvem >>
 
         Responsável por criar ferramentas para interagir com dados na plataforma.
@@ -140,4 +91,4 @@ def get_a3data_project_01(info_requested: str, idiom: str)-> str:
         {div_end}
         '''
 
-    return eval(info_requested)
+        return title, info

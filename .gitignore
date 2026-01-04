@@ -1,2 +1,3 @@
 _env/
 make_pdf.ipynb
+__pycache__

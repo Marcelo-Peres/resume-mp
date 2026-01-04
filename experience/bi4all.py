@@ -1,92 +1,55 @@
-from pandas import to_datetime
-from dateutil.relativedelta import relativedelta
+from helper.py_helper import get_work_project_time
 
 div_ini = '<div style="text-align: justify;">'
 div_end = '</div>'
 
-def get_bi4all_info(info_requested:str, idiom: str)-> str:
+def get_bi4all_info(idiom: str)-> str:
 
-    ini_date = to_datetime('2021-07-01').date()
-    end_date = to_datetime('2022-05-31').date()
-    diff_date = relativedelta(end_date, ini_date)
+    ini_date = '2021-07-01'
+    end_date = '2022-05-31'
 
-    years = diff_date.years
-    months = diff_date.months
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
 
     if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                bi4all_job = f'0{months} month(s)'
-            else:
-                bi4all_job = f'{months} month(s)'
-        else:
-            if months < 10:
-                bi4all_job = f'0{years} years and 0{months} month(s)'
-            else:
-                bi4all_job = f'0{years} years and {months} month(s)'
             
-        title = f'Data Engineer Consultant | BI4ALL | {bi4all_job}'
+        title = f'Data Engineer Consultant | BI4ALL | {job_time}'
         info = f'''
         {div_ini}
 
-        #### Jul 2021 to May 2022
+        #{detail}
 
         {div_end}
         '''
+
+        return title, info
     
     elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                bi4all_job = f'0{months} mês'
-            elif months < 10:
-                bi4all_job = f'0{months} meses'
-            else:
-                bi4all_job = f'{months} meses'
-        else:
-            if months == 1:
-                bi4all_job = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                bi4all_job = f'0{years} ano(s) e 0{months} meses'
-            else:
-                bi4all_job = f'0{years} ano(s) e {months} meses'
-
-        title = f'Engenheiro de Dados Consultor | BI4ALL | {bi4all_job}'
+        
+        title = f'Engenheiro de Dados Consultor | BI4ALL | {job_time}'
         info = f'''
             {div_ini}
 
-            #### De Julho de 2021 até Maio de 2022
+            #{detail}
 
             {div_end}
             '''
 
-    return eval(info_requested)
+        return title, info
 
-def get_bi4all_project_01(info_requested: str, idiom: str)-> str:
+def get_bi4all_project_01(idiom: str)-> str:
 
-    ini_date = to_datetime('2021-07-01').date()
-    end_date = to_datetime('2022-05-31').date()
-    diff_date = relativedelta(end_date, ini_date)
+    ini_date = '2021-07-01'
+    end_date = '2022-05-31'
 
-    years = diff_date.years
-    months = diff_date.months
-    
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
+
     if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                p01 = f'0{months} month(s)'
-            else:
-                p01 = f'{months} month(s)'
-        else:
-            if months < 10:
-                p01 = f'0{years} years and 0{months} month(s)'
-            else:
-                p01 = f'0{years} years and {months} month(s)'
-        
-        title = f'Project - BI in AWS | {p01}'
+                
+        title = f'Project - BI in AWS | {job_time}'
         info = f'''
         {div_ini}
 
-        #### Jul 2021 to May 2022
+        #{detail}
         #### Manserv Company
 
         Responsible for creating data pipelines to push data in S3 using python AWS lambda funtions.
@@ -105,28 +68,16 @@ def get_bi4all_project_01(info_requested: str, idiom: str)-> str:
 
         {div_end}
         '''
+
+        return title, info
     
     elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                p01 = f'0{months} mês'
-            elif months < 10:
-                p01 = f'0{months} meses'
-            else:
-                p01 = f'{months} meses'
-        else:
-            if months == 1:
-                p01 = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                p01 = f'0{years} ano(s) e 0{months} meses'
-            else:
-                p01 = f'0{years} ano(s) e {months} meses'
-
-        title = f'Projeto - BI na AWS | {p01}'
+        
+        title = f'Projeto - BI na AWS | {job_time}'
         info = f'''
         {div_ini}
 
-        #### De Julho de 2021 até Maio de 2022
+        #{detail}
         #### EmpresaManserv
 
         Responsável pela criação de pipelines de dados para enviar dados para o S3 usando funções AWS Lambda em Python.
@@ -146,4 +97,4 @@ def get_bi4all_project_01(info_requested: str, idiom: str)-> str:
         {div_end}
         '''
 
-    return eval(info_requested)
+        return title, info

@@ -4,7 +4,7 @@ from streamlit_pdf_viewer import pdf_viewer
 from streamlit_option_menu import option_menu
 
 from make_resume_us_in_pdf import load_data_resume_us_for_pdf
-from make_resume_br_in_pdf import load_data_resume_for_pdf
+from make_resume_br_in_pdf import load_data_resume_br_for_pdf
 
 from plotly import graph_objects as go
 
@@ -154,52 +154,66 @@ elif selected == options[2]:
     st.header(experience_experiencia)
     st.subheader(job_trabalho)
     # Apllos
-    with st.expander(get_apllos_info(info_requested = 'title', idiom = idiom_idioma)):
-        st.write(get_apllos_info(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+    apllos_title, apllos_info = get_apllos_info(idiom = idiom_idioma)
+    with st.expander(apllos_title):
+        st.write(apllos_info, unsafe_allow_html = True)
         # Audlab Project
-        with st.expander(get_apllos_project_03(info_requested = 'title', idiom = idiom_idioma)):
-            st.write(get_apllos_project_03(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+        apllos_title, apllos_info = get_apllos_project_03(idiom = idiom_idioma)
+        with st.expander(apllos_title):
+            st.write(apllos_info, unsafe_allow_html = True)
         # Gab Project
-        with st.expander(get_apllos_project_02(info_requested = 'title', idiom = idiom_idioma)):
-            st.write(get_apllos_project_02(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+        apllos_title, apllos_info = get_apllos_project_02(idiom = idiom_idioma)
+        with st.expander(apllos_title):
+            st.write(apllos_info, unsafe_allow_html = True)
         # Audlab Project
-        with st.expander(get_apllos_project_01(info_requested = 'title', idiom = idiom_idioma)):
-            st.write(get_apllos_project_01(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+        apllos_title, apllos_info = get_apllos_project_01(idiom = idiom_idioma)
+        with st.expander(apllos_title):
+            st.write(apllos_info, unsafe_allow_html = True)
 
     st.subheader(previous_antes_job_trabalho)
-    with st.expander(get_a3data_info(info_requested = 'title', idiom = idiom_idioma)):
-        st.write(get_a3data_info(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+    # A3Data
+    a3data_title, a3data_info = get_a3data_info(idiom = idiom_idioma)
+    with st.expander(a3data_title):
+        st.write(a3data_info, unsafe_allow_html = True)
         # Stellantis #
-        with st.expander(get_a3data_project_01(info_requested = 'title', idiom = idiom_idioma)):
-            st.write(get_a3data_project_01(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+        a3data_title, a3data_info = get_a3data_project_01(idiom = idiom_idioma)
+        with st.expander(a3data_title):
+            st.write(a3data_info, unsafe_allow_html = True)
     
     # Via Consulting 
-    with st.expander(get_via_consulting_info(info_requested = 'title', idiom = idiom_idioma)):
-        st.write(get_via_consulting_info(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+    via_title, via_info = get_via_consulting_info(idiom = idiom_idioma)
+    with st.expander(via_title):
+        st.write(via_info, unsafe_allow_html = True)
         # Gol Project
-        with st.expander(get_via_consulting_project_03(info_requested = 'title', idiom = idiom_idioma)):
-            st.write(get_via_consulting_project_03(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+        via_title, via_info = get_via_consulting_project_03(idiom = idiom_idioma)
+        with st.expander(via_title):
+            st.write(via_info, unsafe_allow_html = True)
         # Zendesk'
-        with st.expander(get_via_consulting_project_02(info_requested = 'title', idiom = idiom_idioma)):
-            st.write(get_via_consulting_project_02(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+        via_title, via_info = get_via_consulting_project_02(idiom = idiom_idioma)
+        with st.expander(via_title):
+            st.write(via_info, unsafe_allow_html = True)
         # Unimed
-        with st.expander(get_via_consulting_project_01(info_requested = 'title', idiom = idiom_idioma)):
-            st.write(get_via_consulting_project_01(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+        via_title, via_info = get_via_consulting_project_01(idiom = idiom_idioma)
+        with st.expander(via_title):
+            st.write(via_info, unsafe_allow_html = True)
     
     # BI4ALL
-    with st.expander(get_bi4all_info(info_requested = 'title', idiom = idiom_idioma)):
-        st.write(get_bi4all_info(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+    bi4all_title, bi4all_info = get_bi4all_info(idiom = idiom_idioma)
+    with st.expander(bi4all_title):
+        st.write(bi4all_info, unsafe_allow_html = True)
         # BI in AWS
-        with st.expander(get_bi4all_project_01(info_requested = 'title', idiom = idiom_idioma)):
-            st.write(get_bi4all_project_01(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+        bi4all_title, bi4all_info = get_bi4all_project_01(idiom = idiom_idioma)
+        with st.expander(bi4all_title):
+            st.write(bi4all_info, unsafe_allow_html = True)
 
     # CLIF
-    with st.expander(get_clif_info(info_requested = 'title', idiom = idiom_idioma)):
-        st.write(get_clif_info(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
+    clif_title, clif_info = get_clif_info(idiom = idiom_idioma)
+    with st.expander(clif_title):
+        st.write(clif_info, unsafe_allow_html = True)
         # BI in AWS
-        with st.expander(get_clif_project_01(info_requested = 'title', idiom = idiom_idioma)):
-            st.write(get_clif_project_01(info_requested = 'info', idiom = idiom_idioma), unsafe_allow_html = True)
-
+        clif_title, clif_info = get_clif_project_01(idiom = idiom_idioma)
+        with st.expander(clif_title):
+            st.write(clif_info, unsafe_allow_html = True)
 
 elif selected == options[3]:
     st.header(education_educacao)
@@ -234,6 +248,7 @@ elif selected == options[4]:
             st.link_button('Go to my Profile!', url_linkedin, width = 400)
     
 elif selected == options[5]:
+
     if origem_selected == 'English US':
         
         try:
@@ -241,50 +256,33 @@ elif selected == options[5]:
         except:
             pass
         
-        pdf_path = 'static/Marcelo_Peres_EN_Resume.pdf'
+        pdf_path_us = 'static/Marcelo_Peres_EN_Resume.pdf'
         
-        with open(pdf_path, 'rb') as f:
+        with open(pdf_path_us, 'rb') as f_us:
             st.download_button(
                 label = '⬇️ Download this Resume in PDF',
-                data = f,
+                data = f_us,
                 file_name = 'Marcelo_Peres_EN_Resume.pdf',
                 mime = 'application/pdf'
             )
 
-        pdf_viewer(pdf_path, height = 1000, width = 700)
-
-        # Custom Resume
-        # try:
-        #     load_data_resume_us_custom_for_pdf()
-        # except:
-        #     pass
-        
-        # pdf_path = 'static/Marcelo_Peres_EN_US_Resume.pdf'
-        
-        # with open(pdf_path, 'rb') as f:
-        #     st.download_button(
-        #         label = '⬇️ Download this Resume in PDF',
-        #         data = f,
-        #         file_name = 'Marcelo_Peres_EN_US_Resume.pdf',
-        #         mime = 'application/pdf'
-        #     )
-
-        # pdf_viewer(pdf_path, height = 1000, width = 700)
+        pdf_viewer(pdf_path_us, height = 1000, width = 700)
 
     elif origem_selected == 'Português BR':
+        
         try:
-            load_data_resume_for_pdf()
+            load_data_resume_br_for_pdf()
         except:
             pass
         
-        pdf_path = 'static/Marcelo_Peres_CV.pdf'
+        pdf_path_br = 'static/Marcelo_Peres_CV.pdf'
         
-        with open(pdf_path, 'rb') as f:
+        with open(pdf_path_br, 'rb') as f_br:
             st.download_button(
-                label = '⬇️ Download this Resume in PDF',
-                data = f,
+                label = '⬇️ Baixe este arquivo em PDF',
+                data = f_br,
                 file_name = 'Marcelo_Peres_CV.pdf',
                 mime = 'application/pdf'
             )
 
-        pdf_viewer(pdf_path, height = 1000, width = 700)
+        pdf_viewer(pdf_path_br, height = 1000, width = 700)

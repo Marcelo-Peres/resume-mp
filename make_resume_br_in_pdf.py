@@ -33,7 +33,7 @@ new_page = '<div style="page-break-after: always;"></div>'
 name = '## Marcelo Peres'
 
 persoanl_info = '''
-### Big Data Engineer
+### Engenheiro de Big Data
 |                      |
 |----------------------|
 | Email: brmarcelo.peres@gmail.com |
@@ -53,47 +53,61 @@ img = '''
 
 experiences = '## Experiências Profissionais'
 
-apllos_title = '### ' + get_apllos_info(info_requested = 'title', idiom = 'br')
-apllos_info = get_apllos_info(info_requested = 'info', idiom = 'br').strip()
+apllos_title, apllos_info = get_apllos_info(idiom = 'br')
+apllos_title = '### ' + apllos_title
+apllos_info = apllos_info.strip()
 
-apllos_p03_title = '### ' + get_apllos_project_03(info_requested = 'title', idiom = 'br')
-apllos_p03_info = '\n'.join([data.strip() for data in get_apllos_project_03(info_requested = 'info', idiom = 'br').split('\n')])
+apllos_p03_title, apllos_p03_info = get_apllos_project_03(idiom = 'br')
+apllos_p03_title = '### ' + apllos_p03_title
+apllos_p03_info = '\n'.join([data.strip() for data in apllos_p03_info.split('\n')])
 
-apllos_p02_title = '### ' + get_apllos_project_02(info_requested = 'title', idiom = 'br')
-apllos_p02_info = '\n'.join([data.strip() for data in get_apllos_project_02(info_requested = 'info', idiom = 'br').split('\n')])
+apllos_p02_title, apllos_p02_info = get_apllos_project_02(idiom = 'br')
+apllos_p02_title = '### ' + apllos_p02_title
+apllos_p02_info = '\n'.join([data.strip() for data in apllos_p02_info.split('\n')])
 
-apllos_p01_title = '### ' + get_apllos_project_01(info_requested = 'title', idiom = 'br')
-apllos_p01_info = '\n'.join([data.strip() for data in get_apllos_project_01(info_requested = 'info', idiom = 'br').split('\n')])
+apllos_p01_title, apllos_p01_info = get_apllos_project_01(idiom = 'br')
+apllos_p01_title = '### ' + apllos_p01_title
+apllos_p01_info = '\n'.join([data.strip() for data in apllos_p01_info.split('\n')])
 
-a3data_title = '### ' + get_a3data_info(info_requested = 'title', idiom = 'br')
-a3data_info = '\n'.join([data.strip() for data in get_a3data_info(info_requested = 'info', idiom = 'br').split('\n')])
+a3data_title, a3data_info = get_a3data_info(idiom = 'br')
+a3data_title = '### ' + a3data_title
+a3data_info = '\n'.join([data.strip() for data in a3data_info.split('\n')])
 
-a3data_p01_title = '### ' + get_a3data_project_01(info_requested = 'title', idiom = 'br')
-a3data_p01_info = '\n'.join([data.strip() for data in get_a3data_project_01(info_requested = 'info', idiom = 'br').split('\n')])
+a3data_p01_title, a3data_p01_info = get_a3data_project_01(idiom = 'br')
+a3data_p01_title = '### ' + a3data_p01_title
+a3data_p01_info = '\n'.join([data.strip() for data in a3data_p01_info.split('\n')])
 
-via_consulting_title = '### ' + get_via_consulting_info(info_requested = 'title', idiom = 'br')
-via_consulting_info = '\n'.join([data.strip() for data in get_via_consulting_info(info_requested = 'info', idiom = 'br').split('\n')])
+via_consulting_title, via_consulting_info = get_via_consulting_info(idiom = 'br')
+via_consulting_title = '### ' + via_consulting_title
+via_consulting_info = '\n'.join([data.strip() for data in via_consulting_info.split('\n')])
 
-via_consulting_p03_title = '### ' + get_via_consulting_project_03(info_requested = 'title', idiom = 'br')
-via_consulting_p03_info = '\n'.join([data.strip() for data in get_via_consulting_project_03(info_requested = 'info', idiom = 'br').split('\n')])
+via_consulting_p03_title, via_consulting_p03_info = get_via_consulting_project_03(idiom = 'br')
+via_consulting_p03_title = '### ' + via_consulting_p03_title
+via_consulting_p03_info = '\n'.join([data.strip() for data in via_consulting_p03_info.split('\n')])
 
-via_consulting_p02_title = '### ' + get_via_consulting_project_02(info_requested = 'title', idiom = 'br')
-via_consulting_p02_info = '\n'.join([data.strip() for data in get_via_consulting_project_02(info_requested = 'info', idiom = 'br').split('\n')])
+via_consulting_p02_title, via_consulting_p02_info = get_via_consulting_project_02(idiom = 'br')
+via_consulting_p02_title = '### ' + via_consulting_p02_title
+via_consulting_p02_info = '\n'.join([data.strip() for data in via_consulting_p02_info.split('\n')])
 
-via_consulting_p01_title = '### ' + get_via_consulting_project_01(info_requested = 'title', idiom = 'br')
-via_consulting_p01_info = '\n'.join([data.strip() for data in get_via_consulting_project_01(info_requested = 'info', idiom = 'br').split('\n')])
+via_consulting_p01_title, via_consulting_p01_info = get_via_consulting_project_01(idiom = 'br')
+via_consulting_p01_title = '### ' + via_consulting_p01_title
+via_consulting_p01_info = '\n'.join([data.strip() for data in via_consulting_p01_info.split('\n')])
 
-bi4all_title = '### ' + get_bi4all_info(info_requested = 'title', idiom = 'br')
-bi4all_info = '\n'.join([data.strip() for data in get_bi4all_info(info_requested = 'info', idiom = 'br').split('\n')])
+bi4all_title, bi4all_info = get_bi4all_info(idiom = 'br')
+bi4all_title = '### ' + bi4all_title
+bi4all_info = '\n'.join([data.strip() for data in bi4all_info.split('\n')])
 
-bi4all_p01_title = '### ' + get_bi4all_project_01(info_requested = 'title', idiom = 'br')
-bi4all_p01_info = '\n'.join([data.strip() for data in get_bi4all_project_01(info_requested = 'info', idiom = 'br').split('\n')])
+bi4all_p01_title, bi4all_p01_info = get_bi4all_project_01(idiom = 'br')
+bi4all_p01_title = '### ' + bi4all_p01_title
+bi4all_p01_info = '\n'.join([data.strip() for data in bi4all_p01_info.split('\n')])
 
-clif_title = '### ' + get_clif_info(info_requested = 'title', idiom = 'br')
-clif_info = '\n'.join([data.strip() for data in get_clif_info(info_requested = 'info', idiom = 'br').split('\n')])
+clif_title, clif_info = get_clif_info(idiom = 'br')
+clif_title = '### ' + clif_title
+clif_info = '\n'.join([data.strip() for data in clif_info.split('\n')])
 
-clif_p01_title = '### ' + get_clif_project_01(info_requested = 'title', idiom = 'br')
-clif_p01_info = '\n'.join([data.strip() for data in get_clif_project_01(info_requested = 'info', idiom = 'br').split('\n')])
+clif_p01_title, clif_p01_info = get_clif_project_01(idiom = 'br')
+clif_p01_title = '### ' + clif_p01_title
+clif_p01_info = '\n'.join([data.strip() for data in clif_p01_info.split('\n')])
 
 result = '\n\n'.join([
     '#',
@@ -125,6 +139,7 @@ result = '\n\n'.join([
     new_page,
     '---',
     a3data_title,
+    a3data_info,
     '---',
     a3data_p01_title,
     a3data_p01_info,
@@ -164,7 +179,7 @@ result = '\n\n'.join([
 # Create a MarkdownPdf object
 pdf = MarkdownPdf()
 
-def load_data_resume_for_pdf():
+def load_data_resume_br_for_pdf():
     # Add a section to the PDF from your Markdown file
     # Replace 'your_markdown_file.md' with the actual path to your MD file
 

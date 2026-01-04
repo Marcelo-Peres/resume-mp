@@ -1,112 +1,54 @@
-from dateutil.relativedelta import relativedelta
-from pandas import to_datetime
+from helper.py_helper import get_work_project_time
 
 div_ini = '<div style="text-align: justify;">'
 div_end = '</div>'
 
-def get_apllos_info(info_requested:str, idiom: str)-> str:
+def get_apllos_info(idiom: str)-> tuple[str, str]:
 
-    ini_date = to_datetime('2023-07-01').date()
-    end_date = to_datetime('now').date()
-    diff_date = relativedelta(end_date, ini_date)
+    ini_date = '2023-07-01'
+    end_date = ''
 
-    years = diff_date.years
-    months = diff_date.months
-
-    if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                p04 = f'0{months} month(s)'
-            else:
-                p04 = f'{months} month(s)'
-        else:
-            if months < 10:
-                p04 = f'0{years} years and 0{months} month(s)'
-            else:
-                p04 = f'0{years} years and {months} month(s)'
-
-        title = f'Senior Big Data Engineer | Apllos Solutions | {p04}'
-        info = f'''
-        #### From Jul 2023 to nowadays
-        '''
-        return eval(info_requested)
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
     
+    if idiom == 'en':
+        title = f'Senior Big Data Engineer | Apllos Solutions | {job_time}'
     elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                p04 = f'0{months} mês'
-            elif months < 10:
-                p04 = f'0{months} meses'
-            else:
-                p04 = f'{months} meses'
-        else:
-            if months == 1:
-                p04 = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                p04 = f'0{years} ano(s) e 0{months} meses'
-            else:
-                p04 = f'0{years} ano(s) e {months} meses'
-
-        title = f'Engenheiro Big Data Senior | Apllos Solutions | {p04}'
-        info = f'''
-        #### Desde Julho de 2023 até o presente momento
-        '''
+        title = f'Engenheiro Senior de Big Data | Apllos Solutions | {job_time}'
+    
+    info = detail
         
-        return eval(info_requested)
+    return title, info
 
-def get_apllos_project_03(info_requested: str, idiom: str)-> str:
+def get_apllos_project_03(idiom: str)-> str:
     
-    ini_date = to_datetime('2025-01-01').date()
-    end_date = to_datetime('now').date()
-    diff_date = relativedelta(end_date, ini_date)
-
-    years = diff_date.years
-    months = diff_date.months
-
+    ini_date = '2025-01-01'
+    end_date = ''
+    
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
+    
     if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                p03 = f'0{months} month(s)'
-            else:
-                p03 = f'{months} month(s)'
-        else:
-            if months < 10:
-                p03 = f'0{years} years and 0{months} month(s)'
-            else:
-                p03 = f'0{years} years and {months} month(s)'
-    
-        title = f'Project Audlab | {p03}'
+
+        title = f'Project Audlab | {job_time}'
         info = f'''
         {div_ini}
 
-        #### From Jan 2025 to nowadays
+        #{detail}
                 
         Now developing into data lake Delta Lake tables and Postgre tables for Gerdau Commercial Assets.
         Some tables in Postgres for apps interaction and decision making through PBI Reports.
 
         {div_end}
         '''
-    elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                p03 = f'0{months} mês'
-            elif months < 10:
-                p03 = f'0{months} meses'
-            else:
-                p03 = f'{months} meses'
-        else:
-            if months == 1:
-                p04 = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                p04 = f'0{years} ano(s) e 0{months} meses'
-            else:
-                p04 = f'0{years} ano(s) e {months} meses'
 
-        title = f'Projeto Audlab | {p03}'
+        return title, info
+    
+    elif idiom == 'br':
+        
+        title = f'Projeto Audlab | {job_time}'
         info = f'''
         {div_ini}
         
-        #### De Janeiro de 2025 até o presente momento
+        #{detail}
         
         Atualmente desenvolvendo um data lake com tabelas Delta Lake e tabelas PostgreSQL para os ativos comerciais da Gerdau.
         Algumas tabelas no PostgreSQL servem para interação com aplicativos e tomada de decisões por meio de relatórios do Power BI.
@@ -114,34 +56,22 @@ def get_apllos_project_03(info_requested: str, idiom: str)-> str:
         {div_end}
         '''
 
-    return eval(info_requested)
+        return title, info
 
-def get_apllos_project_02(info_requested: str, idiom: str)-> str:
+def get_apllos_project_02(idiom: str)-> str:
     
-    ini_date = to_datetime('2024-09-01').date()
-    end_date = to_datetime('2024-12-31').date()
-    diff_date = relativedelta(end_date, ini_date)
-
-    years = diff_date.years
-    months = diff_date.months
+    ini_date = '2024-09-01'
+    end_date = '2024-12-31'
+    
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
 
     if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                p02 = f'0{months} month(s)'
-            else:
-                p02 = f'{months} month(s)'
-        else:
-            if months < 10:
-                p02 = f'0{years} years and 0{months} month(s)'
-            else:
-                p02 = f'0{years} years and {months} month(s)'
         
-        title = f'Project GAB - Industrial Maintenance | {p02}'
+        title = f'Project GAB - Industrial Maintenance | {job_time}'
         info = f'''
         {div_ini}
         
-        #### From Sep 2024 to Dec 2024
+        #{detail}
 
         In charge of migrate and rebuild ETL process in Pyspark.
         The original scope was only migrate the scripts and put in a CICD environment, and configure jobs schedule in Control-M plataform.
@@ -161,23 +91,12 @@ def get_apllos_project_02(info_requested: str, idiom: str)-> str:
 
         {div_end}
         '''
-    elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                p02 = f'0{months} mês'
-            elif months < 10:
-                p02 = f'0{months} meses'
-            else:
-                p02 = f'{months} meses'
-        else:
-            if months == 1:
-                p02 = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                p02 = f'0{years} ano(s) e 0{months} meses'
-            else:
-                p02 = f'0{years} ano(s) e {months} meses'
 
-        title = f'Projeto GAB - Manutenção Industrial | {p02}'
+        return title, info
+    
+    elif idiom == 'br':
+
+        title = f'Projeto GAB - Manutenção Industrial | {job_time}'
         info = f'''
         {div_ini}
         
@@ -203,34 +122,22 @@ def get_apllos_project_02(info_requested: str, idiom: str)-> str:
         {div_end}
         '''
 
-    return eval(info_requested)
+        return title, info
 
-def get_apllos_project_01(info_requested: str, idiom: str)-> str:
+def get_apllos_project_01(idiom: str)-> str:
         
-    ini_date = to_datetime('2023-07-01').date()
-    end_date = to_datetime('2024-09-30').date()
-    diff_date = relativedelta(end_date, ini_date)
+    ini_date = '2023-07-01'
+    end_date = '2024-09-30'
 
-    years = diff_date.years
-    months = diff_date.months
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
 
     if idiom == 'en':
-        if years == 0:
-            if months < 10:
-                p01 = f'0{months} month(s)'
-            else:
-                p01 = f'{months} month(s)'
-        else:
-            if months < 10:
-                p01 = f'0{years} years and 0{months} month(s)'
-            else:
-                p01 = f'0{years} years and {months} month(s)'
         
-        title = f'Project Databricks Migration Audlab | {p01}'
+        title = f'Project Databricks Migration Audlab | {job_time}'
         info = f'''
         {div_ini}
         
-        #### From Jul 2023 to Sep 2024
+        #{detail}
 
         In charge of data ingestions.
 
@@ -250,28 +157,16 @@ def get_apllos_project_01(info_requested: str, idiom: str)-> str:
 
         {div_end}
         '''
+
+        return title, info
     
     elif idiom == 'br':
-        if years == 0:
-            if months == 1:
-                p02 = f'0{months} mês'
-            elif months < 10:
-                p02 = f'0{months} meses'
-            else:
-                p02 = f'{months} meses'
-        else:
-            if months == 1:
-                p02 = f'0{years} ano(s) e 0{months} mês'
-            if months < 10:
-                p02 = f'0{years} ano(s) e 0{months} meses'
-            else:
-                p02 = f'0{years} ano(s) e {months} meses'
-
-        title = f'Projeto Audlab | {p02}'
+        
+        title = f'Projeto Audlab | {job_time}'
         info = f'''
         {div_ini}
         
-        #### De Julho de 2023 até Setembro de 2024
+        #{detail}
 
         Responsável pela ingestão de dados.
 
@@ -291,4 +186,4 @@ def get_apllos_project_01(info_requested: str, idiom: str)-> str:
         {div_end}
         '''
 
-    return eval(info_requested)
+        return title, info

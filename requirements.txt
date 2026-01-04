@@ -6,3 +6,4 @@ markdown-it-py==3.0.0
 markdown_pdf==1.10
 
 plotly==6.5.0
+pandas==2.3.3
