@@ -38,6 +38,9 @@ def get_apllos_project_04(idiom: str)-> str:
         
         << Porject in progress >>
 
+        Tools used:
+        - Python, PySpark, Saprk SQL, Gitlab, Databricks, CI/CD.
+
         {div_end}
         '''
 
@@ -51,9 +54,12 @@ def get_apllos_project_04(idiom: str)-> str:
         
         #{detail}
         
-        Responsável porCriar uma pipeline de dados para transformar informações relevantes para a equipe de Desempenho Global de Negócios. A ideia é gerenciar a filtragem de diferentes dados e gerar relatórios de acordo com as necessidades de cada equipe. Assim, elas poderão ter uma visão mais abrangente dos negócios para embasar suas decisões.
+        Responsável por criar uma pipeline de dados para transformar informações relevantes para a equipe de Desempenho Global de Negócios. A ideia é gerenciar a filtragem de diferentes dados e gerar relatórios de acordo com as necessidades de cada equipe. Assim, elas poderão ter uma visão mais abrangente dos negócios para embasar suas decisões.
 
         << Projeto em andamento >>
+
+        Ferramentas utilizadas:
+        - Python, PySpark, Saprk SQL, Gitlab, Databricks, CI/CD.
 
         {div_end}
         '''
