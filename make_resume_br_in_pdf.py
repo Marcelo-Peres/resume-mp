@@ -139,8 +139,6 @@ result = '\n\n'.join([
     apllos_p02_title,
     apllos_p02_info,
     '---',
-    new_page,
-    '---',
     apllos_p01_title,
     apllos_p01_info,
     '---',
