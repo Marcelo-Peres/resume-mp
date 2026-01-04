@@ -19,10 +19,52 @@ def get_apllos_info(idiom: str)-> tuple[str, str]:
         
     return title, info
 
+def get_apllos_project_04(idiom: str)-> str:
+    
+    ini_date = '2025-11-09'
+    end_date = ''
+    
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
+    
+    if idiom == 'en':
+
+        title = f'Project Global Business Performance | {job_time}'
+        info = f'''
+        {div_ini}
+
+        #{detail}
+                
+        Responsible for Creating a pipeline to transform data for the Global Business Performance team. The idea is to manage the diferent data filtering and generarating reports according to each squad. So they can have a better vision of business for taken their decisions.
+        
+        << Porject in progress >>
+
+        {div_end}
+        '''
+
+        return title, info
+    
+    elif idiom == 'br':
+        
+        title = f'Projeto Performance Global de Negócios | {job_time}'
+        info = f'''
+        {div_ini}
+        
+        #{detail}
+        
+        Responsável porCriar uma pipeline de dados para transformar informações relevantes para a equipe de Desempenho Global de Negócios. A ideia é gerenciar a filtragem de diferentes dados e gerar relatórios de acordo com as necessidades de cada equipe. Assim, elas poderão ter uma visão mais abrangente dos negócios para embasar suas decisões.
+
+        << Projeto em andamento >>
+
+        {div_end}
+        '''
+
+        return title, info
+
+
 def get_apllos_project_03(idiom: str)-> str:
     
     ini_date = '2025-01-01'
-    end_date = ''
+    end_date = '2025-11-07'
     
     job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
     

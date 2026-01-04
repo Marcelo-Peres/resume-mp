@@ -14,6 +14,7 @@ from skills.content import get_skills_info
 
 from experience.apllos import (
     get_apllos_info,
+    get_apllos_project_04,
     get_apllos_project_03,
     get_apllos_project_02,
     get_apllos_project_01
@@ -157,6 +158,10 @@ elif selected == options[2]:
     apllos_title, apllos_info = get_apllos_info(idiom = idiom_idioma)
     with st.expander(apllos_title):
         st.write(apllos_info, unsafe_allow_html = True)
+        # Global Business Performance Project
+        apllos_title, apllos_info = get_apllos_project_04(idiom = idiom_idioma)
+        with st.expander(apllos_title):
+            st.write(apllos_info, unsafe_allow_html = True)
         # Audlab Project
         apllos_title, apllos_info = get_apllos_project_03(idiom = idiom_idioma)
         with st.expander(apllos_title):
