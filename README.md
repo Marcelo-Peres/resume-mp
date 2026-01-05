@@ -1,2 +1,2 @@
 # resume-mp
-My Resume
+My Resume is ready!
