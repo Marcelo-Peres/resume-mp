@@ -22,8 +22,12 @@ def get_work_project_time(
     
     ini_date = to_datetime(ini_date).date()
     ini_year = ini_date.year
-    ini_month = ini_date.strftime('%B')
-    ini_data_info = f'{ini_month} {ini_year}'
+    
+    ini_month_us = ini_date.strftime('%B')
+    ini_data_info_us = f'{ini_month_us} {ini_year}'
+
+    ini_month_br = meses_pt[ini_date.month]
+    ini_data_info_br = f'{ini_month_br} {ini_year}'
 
     if idiom == 'en':
 
@@ -62,7 +66,7 @@ def get_work_project_time(
             else:
                 job_time = f'{years} years and {months} months'
         
-        info = f'### From {ini_data_info} to {end_data_info}'
+        info = f'### From {ini_data_info_us} to {end_data_info}'
 
         return job_time, info
     
@@ -103,6 +107,6 @@ def get_work_project_time(
             else:
                 job_time = f'{years} anos e {months} meses'
 
-        info = f'### Desde {ini_data_info} até {end_data_info}'
+        info = f'### Desde {ini_data_info_br} até {end_data_info}'
 
         return job_time, info
