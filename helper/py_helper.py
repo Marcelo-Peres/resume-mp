@@ -27,7 +27,7 @@ def get_work_project_time(
     ini_data_info_us = f'{ini_month_us} {ini_year}'
 
     ini_month_br = meses_pt[ini_date.month]
-    ini_data_info_br = f'{ini_month_br} {ini_year}'
+    ini_data_info_br = f'{ini_month_br} de {ini_year}'
 
     if idiom == 'en':
 
@@ -80,7 +80,7 @@ def get_work_project_time(
             end_date = to_datetime(end_date).date()
             end_year = end_date.year
             end_month = meses_pt[end_date.month]
-            end_data_info = f'{end_month} {end_year}'
+            end_data_info = f'{end_month} de {end_year}'
     
         diff_date = relativedelta(end_date, ini_date)
         
