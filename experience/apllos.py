@@ -148,7 +148,7 @@ def get_apllos_project_02(idiom: str)-> str:
         info = f'''
         {div_ini}
         
-        #### De Setembro de 2024 até Dezembre de 2024
+        #{detail}
 
         Responsável pela migração e reconstrução do processo ETL em PySpark.
         O escopo original era apenas migrar os scripts e implementá-los em um ambiente CI/CD, além de configurar o agendamento de jobs na plataforma Control-M.
