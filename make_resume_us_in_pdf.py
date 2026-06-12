@@ -2,6 +2,7 @@ from markdown_pdf import MarkdownPdf, Section
 from about.content import get_about_introduction
 from experience.apllos import (
     get_apllos_info,
+    get_apllos_project_05,
     get_apllos_project_04,
     get_apllos_project_03,
     get_apllos_project_02,
@@ -57,6 +58,10 @@ experiences = '## Work Experience'
 apllos_title, apllos_info = get_apllos_info(idiom = 'en')
 apllos_title = '### ' + apllos_title
 apllos_info = apllos_info.strip()
+
+apllos_p05_title, apllos_p05_info = get_apllos_project_05(idiom = 'en')
+apllos_p05_title = '### ' + apllos_p05_title
+apllos_p05_info = '\n'.join([data.strip() for data in apllos_p05_info.split('\n')])
 
 apllos_p04_title, apllos_p04_info = get_apllos_project_04(idiom = 'en')
 apllos_p04_title = '### ' + apllos_p04_title
@@ -131,11 +136,16 @@ result = '\n\n'.join([
     apllos_title,
     apllos_info,
     '---',
+    apllos_p05_title,
+    apllos_p05_info,
+    '---',
     apllos_p04_title,
     apllos_p04_info,
     '---',
     apllos_p03_title,
     apllos_p03_info,
+    '---',
+    new_page,
     '---',
     apllos_p02_title,
     apllos_p02_info,

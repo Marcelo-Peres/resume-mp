@@ -19,10 +19,60 @@ def get_apllos_info(idiom: str)-> tuple[str, str]:
         
     return title, info
 
+def get_apllos_project_05(idiom: str)-> str:
+    
+    ini_date = '2026-05-11'
+    end_date = ''
+    
+    job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
+    
+    if idiom == 'en':
+
+        title = f'Project Telemetry General Motors Pipeline | {job_time}'
+        info = f'''
+        {div_ini}
+
+        #{detail}
+                
+        Obs: This project is still in progress and every single discussion and decision are made in English with the USA team.
+        Grabing data from telemetry and creating a pipeline to transform data from machines that are used in General Motors. Data are loaded into data lake, organize and generate tables to feed General Motors API.
+        
+        << Porject in progress >>
+
+        Tools used:
+        - Python, PySpark, Saprk SQL, Gitlab, Databricks, CI/CD.
+
+        {div_end}
+        '''
+
+        return title, info
+    
+    elif idiom == 'br':
+        
+        title = f'Projeto Telemetria General Motors Pipeline | {job_time}'
+        info = f'''
+        {div_ini}
+        
+        #{detail}
+        
+        Obs.: Este projeto ainda está em andamento e todas as discussões e decisões são tomadas em inglês com a equipe dos EUA.
+        Coleta de dados de telemetria e criação de um pipeline para transformar dados de máquinas usadas na General Motors. Os dados são carregados em um data lake, organizados e tabelas são geradas para alimentar a API da General Motors.
+
+        << Projeto em andamento >>
+
+        Ferramentas utilizadas:
+        - Python, PySpark, Saprk SQL, Gitlab, Databricks, CI/CD.
+
+        {div_end}
+        '''
+
+        return title, info
+
+
 def get_apllos_project_04(idiom: str)-> str:
     
     ini_date = '2025-11-09'
-    end_date = ''
+    end_date = '2026-04-30'
     
     job_time, detail = get_work_project_time(idiom = idiom, ini_date = ini_date, end_date = end_date)
     
@@ -36,7 +86,7 @@ def get_apllos_project_04(idiom: str)-> str:
                 
         Responsible for Creating a pipeline to transform data for the Global Business Performance team. The idea is to manage the diferent data filtering and generarating reports according to each squad. So they can have a better vision of business for taken their decisions.
         
-        << Porject in progress >>
+        << Porject completed partially, waiting the second stage >>
 
         Tools used:
         - Python, PySpark, Saprk SQL, Gitlab, Databricks, CI/CD.
@@ -56,7 +106,7 @@ def get_apllos_project_04(idiom: str)-> str:
         
         Responsável por criar uma pipeline de dados para transformar informações relevantes para a equipe de Desempenho Global de Negócios. A ideia é gerenciar a filtragem de diferentes dados e gerar relatórios de acordo com as necessidades de cada equipe. Assim, elas poderão ter uma visão mais abrangente dos negócios para embasar suas decisões.
 
-        << Projeto em andamento >>
+        << Projeto finalizado parcialmente e aguardando a segunda fase >>
 
         Ferramentas utilizadas:
         - Python, PySpark, Saprk SQL, Gitlab, Databricks, CI/CD.
@@ -148,7 +198,7 @@ def get_apllos_project_02(idiom: str)-> str:
         info = f'''
         {div_ini}
         
-        #{detail}
+        #### De Setembro de 2024 até Dezembre de 2024
 
         Responsável pela migração e reconstrução do processo ETL em PySpark.
         O escopo original era apenas migrar os scripts e implementá-los em um ambiente CI/CD, além de configurar o agendamento de jobs na plataforma Control-M.
