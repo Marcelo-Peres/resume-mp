@@ -35,12 +35,12 @@ def get_apllos_project_05(idiom: str)-> str:
         #{detail}
                 
         Obs: This project is still in progress and every single discussion and decision are made in English with the USA team.
-        Grabing data from telemetry and creating a pipeline to transform data from machines that are used in General Motors. Data are loaded into data lake, organize and generate tables to feed General Motors API.
+        Grabing data from telemetry and creating a pipeline to transform data from machines that are used in General Motors. Data are loaded into data lake, organizing and generating tables for feeding General Motors API.
         
         << Porject in progress >>
 
         Tools used:
-        - Python, PySpark, Saprk SQL, Gitlab, Databricks, CI/CD.
+        - Python, PySpark, Spark SQL, Gitlab, Databricks, CI/CD.
 
         {div_end}
         '''
@@ -61,7 +61,7 @@ def get_apllos_project_05(idiom: str)-> str:
         << Projeto em andamento >>
 
         Ferramentas utilizadas:
-        - Python, PySpark, Saprk SQL, Gitlab, Databricks, CI/CD.
+        - Python, PySpark, Spark SQL, Gitlab, Databricks, CI/CD.
 
         {div_end}
         '''
@@ -89,7 +89,7 @@ def get_apllos_project_04(idiom: str)-> str:
         << Porject completed partially, waiting the second stage >>
 
         Tools used:
-        - Python, PySpark, Saprk SQL, Gitlab, Databricks, CI/CD.
+        - Python, PySpark, Spark SQL, Gitlab, Databricks, CI/CD.
 
         {div_end}
         '''
@@ -109,7 +109,7 @@ def get_apllos_project_04(idiom: str)-> str:
         << Projeto finalizado parcialmente e aguardando a segunda fase >>
 
         Ferramentas utilizadas:
-        - Python, PySpark, Saprk SQL, Gitlab, Databricks, CI/CD.
+        - Python, PySpark, Spark SQL, Gitlab, Databricks, CI/CD.
 
         {div_end}
         '''
